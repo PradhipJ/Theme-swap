@@ -1,0 +1,106 @@
+* {
+  font-family: "Josefin Sans";
+}
+
+body {
+  --accent-color: #ffcc00;
+  --background-color: white;
+  --text-color: black;
+  --button-text-color: var(--background-color);
+  --transition-delay: 1s;
+  --trans-background-color: black;
+  --trans-text-color: yellow;
+
+  transition: var(--transition-delay);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-size: 30px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  overflow: hidden;
+}
+
+body.dark {
+  --accent-color: #ff5050;
+  --background-color: #333;
+  --text-color: white;
+  --button-text-color: var(--background-color);
+  --trans-background-color: orange;
+  --trans-text-color: purple;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.toggle-theme .icon {
+  margin-right: 0.5em;
+}
+
+.toggle-theme {
+  background-color: var(--accent-color);
+  color: var(--button-text-color);
+  font-weight: bold;
+  font-size: 20px;
+  height: 70px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  border-radius: 0.3em;
+  border: none;
+  outline: none;
+  transition: var(--transition-delay);
+  transform: scale(1);
+}
+
+.toggle-theme:hover {
+  transform: scale(1.1);
+  color: var(--trans-text-color);
+  background-color: var(--trans-background-color);
+}
+
+.sun-moon-container {
+  --rotation: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  pointer-events: none;
+  height: 200vmin;
+  transition: transform var(--transition-delay);
+  transform: rotate(calc(var(--rotation) * 1deg));
+}
+
+.sun,
+.moon {
+  position: absolute;
+  transition: opacity var(--transition-delay);
+  fill: var(--accent-color);
+}
+
+.sun {
+  top: 5%;
+}
+
+.dark .sun {
+  opacity: 1;
+}
+
+.moon {
+  bottom: 5%;
+  opacity: 0;
+  transform: rotate(180deg);
+}
+
+.dark .moon {
+  opacity: 1;
+}
